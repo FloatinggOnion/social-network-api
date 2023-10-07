@@ -37,7 +37,7 @@
 - [x] Setup jwt auth
 - [x] Setup authentication (registration, login, logout)
 - [x] Create post model
-  - [x] Like, remove like, and has liked methods
+  - [x] Like, unlike, and has liked methods
   - [x] Like count
   - [x] Add like and dislike
 - [ ] Add comments to posts
