@@ -1,7 +1,7 @@
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework import status
 from rest_framework.response import Response
-
+from rest_framework.decorators import action
 from core.abstract.viewsets import AbstractViewSet
 from core.post.models import Post
 from core.post.serializers import PostSerializer
@@ -36,4 +36,26 @@ class PostViewSet(AbstractViewSet):
         instance = super().update(instance, validated_data)
 
         return instance
+    
+    @action(methods=['post'], detail=True)
+    def like(self, request, *args, **kwargs):
+        post = self.get_object()
+        user = self.request.user
+
+        user.like(post)
+
+        serializer = self.serializer_class(post)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(methods=['post'], detail=True)
+    def unlike(self, request, *args, **kwargs):
+        post = self.get_object()
+        user = self.request.user
+
+        user.unlike(post)
+
+        serializer = self.serializer_class(post)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
     

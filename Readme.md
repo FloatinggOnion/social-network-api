@@ -17,6 +17,15 @@
 - created: datetime
 - updated: datetime
 
+## Endpoints
+- Get current user: `/api/user`
+- Register a new user: `api/auth/register`
+- Login a user: `api/auth/login`
+- Refresh JWT token: `api/auth.refresh`
+- View a post: `api/post`
+- Like a post: `api/post/post_pk/like`
+- Unlike a post: `api/post/post_pk/unlike`
+
 ## Setup
 
 ## Task List
@@ -28,9 +37,9 @@
 - [x] Setup jwt auth
 - [x] Setup authentication (registration, login, logout)
 - [x] Create post model
-  - [ ] Like, remove like, and has liked methods
-  - [ ] Like count
-  - [ ] Add like and dislike
+  - [x] Like, remove like, and has liked methods
+  - [x] Like count
+  - [x] Add like and dislike
 - [ ] Add comments to posts
   - [ ] Write comment model
   - [ ] Write comment serializer
